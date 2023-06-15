@@ -28,43 +28,124 @@
         /// </summary>
         private void InitializeComponent()
         {
-            button1 = new Button();
-            button2 = new Button();
+            btnPrev = new Button();
+            btnNext = new Button();
+            pnlCard = new Panel();
+            lblAnswer = new Label();
+            lblQuestion = new Label();
+            cbAnswers = new CheckBox();
+            btnLoad = new Button();
+            pnlCard.SuspendLayout();
             SuspendLayout();
             // 
-            // button1
+            // btnPrev
             // 
-            button1.Location = new Point(104, 500);
-            button1.Name = "button1";
-            button1.Size = new Size(150, 46);
-            button1.TabIndex = 0;
-            button1.Text = "button1";
-            button1.UseVisualStyleBackColor = true;
+            btnPrev.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            btnPrev.Location = new Point(664, 558);
+            btnPrev.Name = "btnPrev";
+            btnPrev.Size = new Size(150, 46);
+            btnPrev.TabIndex = 3;
+            btnPrev.Text = "Prev";
+            btnPrev.UseVisualStyleBackColor = true;
+            btnPrev.Click += btnPrev_Click;
             // 
-            // button2
+            // btnNext
             // 
-            button2.Location = new Point(348, 497);
-            button2.Name = "button2";
-            button2.Size = new Size(150, 46);
-            button2.TabIndex = 1;
-            button2.Text = "button2";
-            button2.UseVisualStyleBackColor = true;
+            btnNext.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            btnNext.Location = new Point(820, 558);
+            btnNext.Name = "btnNext";
+            btnNext.Size = new Size(150, 46);
+            btnNext.TabIndex = 0;
+            btnNext.Text = "Next";
+            btnNext.UseVisualStyleBackColor = true;
+            btnNext.Click += btnNext_Click;
+            // 
+            // pnlCard
+            // 
+            pnlCard.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            pnlCard.BackColor = SystemColors.Window;
+            pnlCard.Controls.Add(lblAnswer);
+            pnlCard.Controls.Add(lblQuestion);
+            pnlCard.Location = new Point(12, 12);
+            pnlCard.Name = "pnlCard";
+            pnlCard.Size = new Size(958, 532);
+            pnlCard.TabIndex = 1;
+            pnlCard.TabStop = true;
+            // 
+            // lblAnswer
+            // 
+            lblAnswer.Dock = DockStyle.Bottom;
+            lblAnswer.Font = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Point);
+            lblAnswer.ForeColor = SystemColors.ControlDark;
+            lblAnswer.Location = new Point(0, 347);
+            lblAnswer.Name = "lblAnswer";
+            lblAnswer.Size = new Size(958, 185);
+            lblAnswer.TabIndex = 1;
+            lblAnswer.Text = "answer";
+            lblAnswer.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // lblQuestion
+            // 
+            lblQuestion.Dock = DockStyle.Fill;
+            lblQuestion.Font = new Font("Segoe UI", 32F, FontStyle.Bold, GraphicsUnit.Point);
+            lblQuestion.Location = new Point(0, 0);
+            lblQuestion.Name = "lblQuestion";
+            lblQuestion.Size = new Size(958, 532);
+            lblQuestion.TabIndex = 0;
+            lblQuestion.Text = "question";
+            lblQuestion.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // cbAnswers
+            // 
+            cbAnswers.Anchor = AnchorStyles.Bottom;
+            cbAnswers.AutoSize = true;
+            cbAnswers.Location = new Point(426, 564);
+            cbAnswers.Name = "cbAnswers";
+            cbAnswers.Size = new Size(133, 36);
+            cbAnswers.TabIndex = 2;
+            cbAnswers.Text = "Answers";
+            cbAnswers.UseVisualStyleBackColor = true;
+            cbAnswers.CheckedChanged += cbAnswers_CheckedChanged;
+            // 
+            // btnLoad
+            // 
+            btnLoad.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            btnLoad.Location = new Point(12, 558);
+            btnLoad.Name = "btnLoad";
+            btnLoad.Size = new Size(150, 46);
+            btnLoad.TabIndex = 1;
+            btnLoad.Text = "Load";
+            btnLoad.UseVisualStyleBackColor = true;
+            btnLoad.Click += btnLoad_Click;
             // 
             // MainWindow
             // 
             AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(982, 616);
-            Controls.Add(button2);
-            Controls.Add(button1);
+            Controls.Add(btnLoad);
+            Controls.Add(cbAnswers);
+            Controls.Add(pnlCard);
+            Controls.Add(btnNext);
+            Controls.Add(btnPrev);
+            KeyPreview = true;
             Name = "MainWindow";
             Text = "Flash Cards";
+            Load += MainWindow_Load;
+            KeyDown += window_KeyDown;
+            pnlCard.ResumeLayout(false);
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
 
-        private Button button1;
-        private Button button2;
+        private Button btnPrev;
+        private Button btnNext;
+        private Panel pnlCard;
+        private CheckBox cbAnswers;
+        private Label lblAnswer;
+        private Label lblQuestion;
+        private Button btnLoad;
     }
 }
